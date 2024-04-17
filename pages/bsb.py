@@ -4,5 +4,5 @@ import os
 import pandas as pd
 
 def app():
-    st.title('Gallica Analysis')
-    st.write("Welcome to the Gallica analysis page.")    
+    st.title('BSB Analysis')
+    st.write("Welcome to the BSB analysis page.")    

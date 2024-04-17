@@ -19,7 +19,7 @@ pages = {
     "DRC": drc.app,
     "Gallica": gallica.app,
     "EEBO": eebo.app,
-    "BSBS": bsb.app
+    "BSB": bsb.app
 }
 
 st.sidebar.title('Navigation')
