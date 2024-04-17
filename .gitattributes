@@ -1,2 +1,5 @@
+/Users/jeffcwolf/CODE/PycharmProjects/veritrace_vub/core-search/core_search/streamlit_veritrace_metadata/data/bsb_almost-all.csv filter=lfs diff=lfs merge=lfs -text
+/Users/jeffcwolf/CODE/PycharmProjects/veritrace_vub/core-search/core_search/streamlit_veritrace_metadata/data/full-eebo.csv filter=lfs diff=lfs merge=lfs -text
+/Users/jeffcwolf/CODE/PycharmProjects/veritrace_vub/core-search/core_search/streamlit_veritrace_metadata/data/vgallica_metadata_original.json filter=lfs diff=lfs merge=lfs -text
 *.csv filter=lfs diff=lfs merge=lfs -text
 * !text !filter !merge !diff
