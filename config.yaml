@@ -1,0 +1,33 @@
+Use configuration files for settings that might change, such as paths to data files, parameters for data processing, or UI settings.
+
+YAML or JSON Configs: Store configuration options that can be easily changed without modifying the code directly.
+
+Common Uses of config.yaml in Streamlit Apps
+Data Sources
+Paths to data files or directories
+Database connection strings or credentials
+API URLs and API keys (though sensitive keys should be managed through more secure means like environment variables)
+Application Settings
+Port number and host configuration for running the app
+Configuration for app behavior, like enabling/disabling specific features
+Default values for user inputs or dropdowns
+Visualization Settings
+Default parameters for plots (e.g., default color schemes, plot sizes)
+Configuration for how data should be visualized (e.g., thresholds for color coding, limits for scaling)
+Performance Options
+Settings related to caching mechanisms
+Parameters for data refresh rates or batch processing sizes
+Environment Specific Settings
+Different configurations for development, testing, and production environments. This can include logging levels, debug mode settings, and feature toggles.
+
+data:
+  crc_data_path: "data/crc_data.csv"
+  drc_data_path: "data/drc_data.csv"
+
+plotting:
+  line_chart:
+    x: "Date"
+    y: "Value"
+  bar_chart:
+    x: "Category"
+    y: "Amount"
