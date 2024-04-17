@@ -27,7 +27,7 @@ Implementing caching mechanisms to optimize performance, especially useful when 
 import pandas as pd
 import os
 
-# Load the general dataframes
+# Load the general dataframes from external files stored on sync.com
 
 # Gallica
 gallica_file_path = 'data/vgallica_metadata_original.json'
@@ -37,13 +37,15 @@ df_gallica = pd.read_json(gallica_file_path, lines=True)
 
 # BSB
 
-
+# CRC
+crc_file_path = 'data/crc.csv'
+df_crc = pd.read_csv(crc_file_path, low_memory=False)
 
 def load_crc_data():
     return pd.read_csv('data/crc.csv', low_memory=False)
 
 def load_eebo_data():
-    return pd.read_csv('data/full_eebo.csv', low_memory=False)
+    return pd.DataFrame()
 
 # def load_gallica_data_all():
 #     file_path = 'data/vgallica_metadata_original.json'
@@ -64,10 +66,14 @@ def load_gallica_data():
     gallica_columns_to_analyse = ['date', 'title', 'creator', 'contributor', 'publisher', 'language',
     'description', 'format', 'type', 'identifier', 'source', 'OCR_Quality', 'Provenance', 'subject', 'Full ARK ID','filename', 'file size (MB)']
     
-    df_gallica_sub = df_gallica[gallica_columns_to_analyse]
+    gallica_columns_to_analyse_small = ['date', 'title', 'creator', 'contributor', 'publisher', 'language',
+    'description', 'format', 'source', 'OCR_Quality', 'subject', 'file size (MB)']
     
-    return df_gallica_sub
+    df_gallica_sub = df_gallica[gallica_columns_to_analyse]
+    df_gallica_sub_small = df_gallica[gallica_columns_to_analyse_small]
+    
+    return df_gallica_sub_small
 
 def load_bsb_data():
-    return pd.read_csv('data/bsb_almost-all.csv', low_memory=False)
+    return pd.DataFrame()
 
