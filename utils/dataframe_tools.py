@@ -7,6 +7,16 @@ from utils import search_utils
 
 def display_dataframe(df):
     st.dataframe(df)
+    
+def dataframe_summary(df):
+    st.markdown(f"Total Gallica records: **{df.shape[0]}** items  \nTotal columns: {df.shape[1]}") # This uses markdown to create a new line (Adding two spaces followed by \n at the end of the first line)
+    # st.write(f"Total records: {df.shape[0]}")
+    # st.write(f"Total columns: {df.shape[1]}")
+    
+    filtered_dates = df[df['date'].str.isdigit() & (df['date'].str.len() == 4)]['date']
+    st.write(f"Document date range: {filtered_dates.min()} to {filtered_dates.max()}") # st.write(f"Document date range: {df['date'].min()} to {df['date'].max()}")
+
+    st.write("Top 3 document languages:", df['language'].value_counts().head(3).to_string(header=False, index=True).replace('\n', ', '))
 
 def show_column_counts(df):
     for column in df.columns:
@@ -26,11 +36,6 @@ def dataframe_search(df):
         filtered_df = df[df[search_column].astype(str).str.contains(search_query, case=False, na=False)]
         st.write(f"Number of results: {len(filtered_df)}")
         st.dataframe(filtered_df)
-
-def dataframe_summary(df):
-    st.write(f"Total records: {len(df)}")
-    st.write("General Info:")
-    st.text(str(df.info()))
 
 def dataframe_toolbox(df):
     st.subheader('Dataframe Analysis Toolbox')

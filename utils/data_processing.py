@@ -38,15 +38,14 @@ df_gallica = pd.read_json(gallica_file_path, lines=True)
 # BSB
 
 # CRC
-crc_file_path = 'data/crc.csv'
-df_crc = pd.read_csv(crc_file_path, low_memory=False)
+# crc_file_path = 'data/crc.csv'
+# df_crc = pd.read_csv(crc_file_path, low_memory=False)
 
 def load_crc_data():
     return pd.read_csv('data/crc.csv', low_memory=False)
 
 def load_eebo_data():
-    return pd.DataFrame()
-
+    return pd.read_csv('data/full_eebo.csv', low_memory=False)
 # def load_gallica_data_all():
 #     file_path = 'data/vgallica_metadata_original.json'
 #     if os.path.exists(file_path):

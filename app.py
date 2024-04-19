@@ -15,11 +15,11 @@ st.set_page_config(layout="wide")
 
 # Dictionary of pages
 pages = {
-    "CRC": crc.app,
-    "DRC": drc.app,
     "Gallica": gallica.app,
     "EEBO": eebo.app,
-    "BSB": bsb.app
+    "BSB": bsb.app,
+    "CRC": crc.app,
+    "DRC": drc.app
 }
 
 st.sidebar.title('Navigation')
@@ -29,9 +29,9 @@ selection = st.sidebar.radio("Go to", list(pages.keys()))
 page = pages[selection]
 page()
 
-if st.button('Clear cache and rerun'):
-    st.cache_data.clear()
-    st.experimental_rerun()
+# if st.button('Clear cache and rerun'):
+#     st.cache_data.clear()
+#     st.experimental_rerun()
 
 # SEARCHING
 

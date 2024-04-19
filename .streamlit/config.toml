@@ -1,5 +1,12 @@
 # .streamlit/config.toml
 
+[server]
+runOnSave = true
+fileWatcherType = "watchdog"  # Options are "none", "watchdog", or "poll"
+enableCORS = false
+enableXsrfProtection = false
+
 [theme]
 base="light"
 secondaryBackgroundColor="#bfccf5"
+
