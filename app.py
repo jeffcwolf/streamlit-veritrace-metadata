@@ -25,6 +25,9 @@ pages = {
 st.sidebar.title('Navigation')
 selection = st.sidebar.radio("Go to", list(pages.keys()))
 
+# Adding multiple filters
+# st.sidebar.header("Filters")
+
 # Call the app function based on selection
 page = pages[selection]
 page()

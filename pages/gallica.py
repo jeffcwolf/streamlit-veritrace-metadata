@@ -33,6 +33,40 @@ def app():
         # Display the dataframe using a custom function or directly
         templates.display_dataframe(df_searched)
     
+    #FILTERING
+
+    # Adding multiple filters
+    st.sidebar.header("Filters")
+    unique_columns = df.columns.tolist()
+
+    # Allow users to select multiple filters
+    selected_filters = st.sidebar.multiselect('Select filters:', unique_columns)
+
+    # For each selected filter, allow users to specify the values they are interested in
+    conditions = []
+    for column in selected_filters:
+        unique_values = pd.unique(df[column])
+        selected_values = st.sidebar.multiselect(f"Values for {column}", unique_values)
+        if selected_values:
+            conditions.append(df[column].isin(selected_values))
+
+    # Combine all conditions
+    if conditions:
+        combined_conditions = conditions[0]
+        for condition in conditions[1:]:
+            combined_conditions = combined_conditions & condition
+        df_filtered = df[combined_conditions]
+    else:
+        df_filtered = df
+
+    # Display the filtered dataframe
+    st.markdown("## Filtered Data  \nFiltered results appear below the filter bar.")
+    if df_searched is not None:
+        # Display the number of results found
+        st.write(f"Total results: {len(df_filtered)}")
+        # Display the dataframe using a custom function or directly
+        templates.display_dataframe(df_filtered)
+    
     # ANALYTICS
     st.markdown("## Analytics  \nDisplaying some basic analytics on the data.")
     n = 5
