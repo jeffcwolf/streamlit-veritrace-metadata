@@ -26,6 +26,7 @@ Implementing caching mechanisms to optimize performance, especially useful when 
 '''
 import pandas as pd
 import os
+import streamlit as st
 
 # Load the general dataframes from external files stored on sync.com
 
