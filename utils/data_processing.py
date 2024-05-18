@@ -41,9 +41,11 @@ df_gallica = pd.read_json(gallica_file_path, lines=True)
 # crc_file_path = 'data/crc.csv'
 # df_crc = pd.read_csv(crc_file_path, low_memory=False)
 
+@st.cache_data
 def load_crc_data():
     return pd.read_csv('data/crc.csv', low_memory=False)
 
+@st.cache_data
 def load_eebo_data():
     return pd.read_csv('data/veebo_metadata_original_final_short.csv', low_memory=False)
 # def load_gallica_data_all():
@@ -60,6 +62,7 @@ def load_eebo_data():
 #         print(f"File does not exist at path: {file_path}")
 #         return pd.DataFrame()  # Return an empty DataFrame if file does not exist
 
+@st.cache_data
 def load_gallica_data():
     # Return a subset of the data for demonstration purposes
     gallica_columns_to_analyse = ['date', 'title', 'creator', 'contributor', 'publisher', 'language',
@@ -73,6 +76,7 @@ def load_gallica_data():
     
     return df_gallica_sub_small
 
+@st.cache_data
 def load_bsb_data():
     return pd.DataFrame()
 
