@@ -45,7 +45,7 @@ def load_crc_data():
     return pd.read_csv('data/crc.csv', low_memory=False)
 
 def load_eebo_data():
-    return pd.read_csv('data/full_eebo.csv', low_memory=False)
+    return pd.read_csv('data/veebo_metadata_original_final_short.csv', low_memory=False)
 # def load_gallica_data_all():
 #     file_path = 'data/vgallica_metadata_original.json'
 #     if os.path.exists(file_path):

@@ -14,7 +14,7 @@ def dataframe_summary(df):
     # st.write(f"Total columns: {df.shape[1]}")
     
     filtered_dates = df[df['date'].str.isdigit() & (df['date'].str.len() == 4)]['date']
-    st.write(f"Document date range: {filtered_dates.min()} to {filtered_dates.max()}") # st.write(f"Document date range: {df['date'].min()} to {df['date'].max()}")
+    st.write(f"Document date range: {filtered_dates.min()}-{filtered_dates.max()}") # st.write(f"Document date range: {df['date'].min()} to {df['date'].max()}")
 
     st.write("Top 3 document languages:", df['language'].value_counts().head(3).to_string(header=False, index=True).replace('\n', ', '))
 
